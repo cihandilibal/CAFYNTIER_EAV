@@ -61,6 +61,12 @@
   <ItemGroup>
     <Folder Include="Options\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.ENTITIES\Project.ENTITIES.csproj">
+      <Project>{264c6341-f713-4427-bb61-45d281dd7725}</Project>
+      <Name>Project.ENTITIES</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
