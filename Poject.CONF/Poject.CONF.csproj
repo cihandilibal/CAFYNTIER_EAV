@@ -51,7 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Options\AppUserConfiguration.cs" />
+    <Compile Include="Options\AppUserProfileConfiguration.cs" />
     <Compile Include="Options\BaseConfiguration.cs" />
+    <Compile Include="Options\CategoryConfiguration.cs" />
+    <Compile Include="Options\OrderConfiguration.cs" />
+    <Compile Include="Options\ProductConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
