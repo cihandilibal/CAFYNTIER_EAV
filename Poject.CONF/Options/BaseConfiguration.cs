@@ -10,9 +10,9 @@ namespace Poject.CONF.Options
 {
     public abstract class BaseConfiguration<T>:EntityTypeConfiguration<T> where T: BaseEntity
     {
-        BaseConfiguration()
-        {
+       public BaseConfiguration()
+       {
 
-        }
+       }
     }
 }
