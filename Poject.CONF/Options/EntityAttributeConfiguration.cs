@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Poject.CONF.Options
 {
-    public class OrderConfiguration:BaseConfiguration<Order>
+    public class EntityAttributeConfiguration:BaseConfiguration<EntityAttribute>
     {
-        public OrderConfiguration()
+        public EntityAttributeConfiguration()
         {
-            ToTable("Siparişler");
+            ToTable("Özellikler");
         }
     }
 }

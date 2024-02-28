@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Poject.CONF.Options
 {
-    public class OrderConfiguration:BaseConfiguration<Order>
+    public class ProfileConfiguration: BaseConfiguration<AppUserProfile>
     {
-        public OrderConfiguration()
+        public ProfileConfiguration()
         {
-            ToTable("Siparişler");
+            ToTable("KullanıcıProfilleri");
         }
+
     }
 }

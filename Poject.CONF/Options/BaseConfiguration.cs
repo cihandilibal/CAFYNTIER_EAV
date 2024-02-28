@@ -12,7 +12,10 @@ namespace Poject.CONF.Options
     {
        public BaseConfiguration()
        {
-
-       }
+            Property(x=> x.CreatedDate).HasColumnName("Oluşturulma Tarihi");
+            Property(x => x.ModifiedDate).HasColumnName("Güncellenme Tarihi");
+            Property(x => x.DeletedDate).HasColumnName("Silinme Tarihi");
+            Property(x => x.Status).HasColumnName("Veri Durumu");
+        }
     }
 }

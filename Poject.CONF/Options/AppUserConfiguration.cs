@@ -12,11 +12,11 @@ namespace Poject.CONF.Options
     {
         public AppUserConfiguration()
         {
+            ToTable("Kullanıcılar");
             Property(x => x.UserName).IsRequired();
             Property(x => x.Password).IsRequired();
-
-            //Relational Configuration
             HasOptional(x => x.Profile).WithRequired(x => x.AppUser);
+
         }
     }
 }
