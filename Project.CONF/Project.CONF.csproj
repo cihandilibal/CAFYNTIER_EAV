@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5F1E131F-2AAA-4529-8B8B-41D37B2D3DCE}</ProjectGuid>
+    <ProjectGuid>{AB01EF44-5C26-4B98-8DAA-18108AC590CE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Project.CONF</RootNamespace>
-    <AssemblyName>Poject.CONF</AssemblyName>
+    <AssemblyName>Project.CONF</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Options\AppUserConfiguration.cs" />
-    <Compile Include="Options\ProfileConfiguration.cs" />
     <Compile Include="Options\BaseConfiguration.cs" />
     <Compile Include="Options\CategoryConfiguration.cs" />
     <Compile Include="Options\EntityAttributeConfiguration.cs" />
@@ -60,13 +59,13 @@
     <Compile Include="Options\OrderDetailConfiguration.cs" />
     <Compile Include="Options\ProductAttributeConfiguration.cs" />
     <Compile Include="Options\ProductConfiguration.cs" />
+    <Compile Include="Options\ProfileConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Project.ENTITIES\Project.ENTITIES.csproj">
       <Project>{264c6341-f713-4427-bb61-45d281dd7725}</Project>
