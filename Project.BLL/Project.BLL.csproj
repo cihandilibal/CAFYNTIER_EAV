@@ -51,9 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DesingPatterns\GenericRepository\ConcRep\AppUserProfileRepository.cs" />
     <Compile Include="DesingPatterns\GenericRepository\ConcRep\AppUserRepository.cs" />
+    <Compile Include="DesingPatterns\GenericRepository\ConcRep\CategoryRepository.cs" />
+    <Compile Include="DesingPatterns\GenericRepository\ConcRep\EntityAttributeRepository.cs" />
+    <Compile Include="DesingPatterns\GenericRepository\ConcRep\OrderDetailsRepository.cs" />
+    <Compile Include="DesingPatterns\GenericRepository\ConcRep\OrderRepository.cs" />
+    <Compile Include="DesingPatterns\GenericRepository\ConcRep\ProductAttributeRepository.cs" />
+    <Compile Include="DesingPatterns\GenericRepository\ConcRep\ProductRepository.cs" />
     <Compile Include="DesingPatterns\GenericRepository\EFBaseRep\BaseRepository.cs" />
     <Compile Include="DesingPatterns\GenericRepository\IntRep\IRepository.cs" />
     <Compile Include="DesingPatterns\SingletonPattern\DBTool.cs" />

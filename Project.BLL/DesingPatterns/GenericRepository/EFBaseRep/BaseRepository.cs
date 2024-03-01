@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Project.BLL.DesingPatterns.GenericRepository.IntRep;
+using Project.BLL.DesingPatterns.SingletonPattern;
+using Project.DAL.ContextClasses;
+using Project.ENTITIES.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -119,7 +124,7 @@ namespace Project.BLL.DesingPatterns.GenericRepository.EFBaseRep
             Save();
         }
 
-        public void UpdateRange(List<T> list)
+        public void UpgrateRange(List<T> list)
         {
             foreach (T item in list) Update(item);
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Project.BLL.DesingPatterns.GenericRepository.ConcRep
 {
-    public class AppUserProfileRepository:BaseRepository<AppUserProfile>
+    public class EntityAttributeRepository:BaseRepository<EntityAttribute>
     {
     }
 }

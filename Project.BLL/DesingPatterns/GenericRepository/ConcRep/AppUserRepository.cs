@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project.BLL.DesingPatterns.GenericRepository.EFBaseRep;
+using Project.ENTITIES.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

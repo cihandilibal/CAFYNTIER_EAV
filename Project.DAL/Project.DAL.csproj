@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="ContextClasses\MyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,9 +59,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Poject.CONF\Poject.CONF.csproj">
-      <Project>{5f1e131f-2aaa-4529-8b8b-41d37b2d3dce}</Project>
-      <Name>Poject.CONF</Name>
+    <ProjectReference Include="..\Project.CONF\Project.CONF.csproj">
+      <Project>{ab01ef44-5c26-4b98-8daa-18108ac590ce}</Project>
+      <Name>Project.CONF</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.ENTITIES\Project.ENTITIES.csproj">
       <Project>{264c6341-f713-4427-bb61-45d281dd7725}</Project>
