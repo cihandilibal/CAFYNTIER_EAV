@@ -112,7 +112,7 @@ namespace Project.BLL.DesingPatterns.GenericRepository.EFBaseRep
 
         public List<MyModel> Select<MyModel>(Expression<Func<T, MyModel>> exp) where MyModel : class
         {
-            return _db.Set<T>().Select(exp).ToList();
+            return _db.Set<T>().Where(x=> x.Status != ENTITIES.Enums.DataStatus.Deleted).Select(exp).ToList();
         }
 
         public void Update(T item)

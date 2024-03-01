@@ -28,12 +28,143 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.btnListele = new System.Windows.Forms.Button();
+			this.btnSil = new System.Windows.Forms.Button();
+			this.btnGuncelle = new System.Windows.Forms.Button();
+			this.btnEkle = new System.Windows.Forms.Button();
+			this.lstUrun = new System.Windows.Forms.ListBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.txtFiyat = new System.Windows.Forms.TextBox();
+			this.txtIsim = new System.Windows.Forms.TextBox();
+			this.cmbKategoriler = new System.Windows.Forms.ComboBox();
+			this.SuspendLayout();
+			// 
+			// btnListele
+			// 
+			this.btnListele.Location = new System.Drawing.Point(43, 249);
+			this.btnListele.Name = "btnListele";
+			this.btnListele.Size = new System.Drawing.Size(102, 43);
+			this.btnListele.TabIndex = 24;
+			this.btnListele.Text = "LİSTELE";
+			this.btnListele.UseVisualStyleBackColor = true;
+			// 
+			// btnSil
+			// 
+			this.btnSil.Location = new System.Drawing.Point(43, 374);
+			this.btnSil.Name = "btnSil";
+			this.btnSil.Size = new System.Drawing.Size(102, 43);
+			this.btnSil.TabIndex = 23;
+			this.btnSil.Text = "SİL";
+			this.btnSil.UseVisualStyleBackColor = true;
+			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+			// 
+			// btnGuncelle
+			// 
+			this.btnGuncelle.Location = new System.Drawing.Point(43, 436);
+			this.btnGuncelle.Name = "btnGuncelle";
+			this.btnGuncelle.Size = new System.Drawing.Size(102, 43);
+			this.btnGuncelle.TabIndex = 22;
+			this.btnGuncelle.Text = "GÜNCELLE";
+			this.btnGuncelle.UseVisualStyleBackColor = true;
+			this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+			// 
+			// btnEkle
+			// 
+			this.btnEkle.Location = new System.Drawing.Point(43, 310);
+			this.btnEkle.Name = "btnEkle";
+			this.btnEkle.Size = new System.Drawing.Size(102, 43);
+			this.btnEkle.TabIndex = 21;
+			this.btnEkle.Text = "EKLE";
+			this.btnEkle.UseVisualStyleBackColor = true;
+			this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
+			// 
+			// lstUrun
+			// 
+			this.lstUrun.FormattingEnabled = true;
+			this.lstUrun.ItemHeight = 16;
+			this.lstUrun.Location = new System.Drawing.Point(253, 21);
+			this.lstUrun.Name = "lstUrun";
+			this.lstUrun.Size = new System.Drawing.Size(648, 500);
+			this.lstUrun.TabIndex = 20;
+			this.lstUrun.Click += new System.EventHandler(this.lstUrun_Click);
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label3.Location = new System.Drawing.Point(30, 95);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(45, 20);
+			this.label3.TabIndex = 17;
+			this.label3.Text = "Fiyat";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label1.Location = new System.Drawing.Point(30, 31);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(50, 20);
+			this.label1.TabIndex = 19;
+			this.label1.Text = "Ürün ";
+			// 
+			// txtFiyat
+			// 
+			this.txtFiyat.Location = new System.Drawing.Point(34, 118);
+			this.txtFiyat.Name = "txtFiyat";
+			this.txtFiyat.Size = new System.Drawing.Size(111, 22);
+			this.txtFiyat.TabIndex = 14;
+			// 
+			// txtIsim
+			// 
+			this.txtIsim.Location = new System.Drawing.Point(32, 54);
+			this.txtIsim.Name = "txtIsim";
+			this.txtIsim.Size = new System.Drawing.Size(113, 22);
+			this.txtIsim.TabIndex = 12;
+			// 
+			// cmbKategoriler
+			// 
+			this.cmbKategoriler.FormattingEnabled = true;
+			this.cmbKategoriler.Location = new System.Drawing.Point(34, 179);
+			this.cmbKategoriler.Name = "cmbKategoriler";
+			this.cmbKategoriler.Size = new System.Drawing.Size(159, 24);
+			this.cmbKategoriler.TabIndex = 25;
+			// 
+			// Form2
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(987, 547);
+			this.Controls.Add(this.cmbKategoriler);
+			this.Controls.Add(this.btnListele);
+			this.Controls.Add(this.btnSil);
+			this.Controls.Add(this.btnGuncelle);
+			this.Controls.Add(this.btnEkle);
+			this.Controls.Add(this.lstUrun);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.txtFiyat);
+			this.Controls.Add(this.txtIsim);
+			this.Name = "Form2";
 			this.Text = "Form2";
+			this.Load += new System.EventHandler(this.Form2_Load);
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
 		}
 
 		#endregion
+
+		private System.Windows.Forms.Button btnListele;
+		private System.Windows.Forms.Button btnSil;
+		private System.Windows.Forms.Button btnGuncelle;
+		private System.Windows.Forms.Button btnEkle;
+		private System.Windows.Forms.ListBox lstUrun;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox txtFiyat;
+		private System.Windows.Forms.TextBox txtIsim;
+		private System.Windows.Forms.ComboBox cmbKategoriler;
 	}
 }
