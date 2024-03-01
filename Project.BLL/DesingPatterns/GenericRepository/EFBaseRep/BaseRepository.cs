@@ -21,12 +21,10 @@ namespace Project.BLL.DesingPatterns.GenericRepository.EFBaseRep
             _db.Set<T>().Add(item);
             Save();
         }
-
         private void Save()
         {
             _db.SaveChanges();
         }
-
         public void AddRange(List<T> list)
         {
             _db.Set<T>().AddRange(list);
@@ -95,7 +93,6 @@ namespace Project.BLL.DesingPatterns.GenericRepository.EFBaseRep
         public List<T> GetLastDatas(int count)
         {
             return _db.Set<T>().OrderByDescending(x => x.CreatedDate).Take(count).ToList();
-
         }
 
         public List<T> GetModifieds()
@@ -106,7 +103,6 @@ namespace Project.BLL.DesingPatterns.GenericRepository.EFBaseRep
         public List<T> GetPassives()
         {
             return Where(x => x.Status == ENTITIES.Enums.DataStatus.Deleted);
-
         }
 
         public List<MyModel> Select<MyModel>(Expression<Func<T, MyModel>> exp) where MyModel : class
@@ -119,12 +115,8 @@ namespace Project.BLL.DesingPatterns.GenericRepository.EFBaseRep
             item.Status = ENTITIES.Enums.DataStatus.Updated;
             item.ModifiedDate = DateTime.Now;
             T originalData = Find(item.ID);
-
-
             _db.Entry(originalData).CurrentValues.SetValues(item);
             Save();
-
-
         }
 
         public void UpdateRange(List<T> list)
