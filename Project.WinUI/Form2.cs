@@ -1,6 +1,5 @@
 ﻿using Project.BLL.DesingPatterns.GenericRepository.ConcRep;
 using Project.ENTITIES.Models;
-using Project.WinUI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,18 +14,16 @@ namespace Project.WinUI
 {
 	public partial class Form2 : Form
 	{
-		CategoryRepository _categoryRep;
-		ProductRepository _productRep;
-		EntityAttributeRepository _entityAttributeRep;
-		ProductAttributeRepository _productAttributeRep;
+		CategoryRepository _crep;
+		ProductRepository _prep;
+		
 
 		public Form2()
 		{
 			InitializeComponent();
-			_categoryRep = new CategoryRepository();
-			_productRep = new ProductRepository();
-			_entityAttributeRep = new EntityAttributeRepository();
-			_productAttributeRep = new ProductAttributeRepository();
+			_crep = new CategoryRepository();
+			_prep = new ProductRepository();
+			
 		}
 
 		private void Form2_Load(object sender, EventArgs e)
@@ -35,73 +32,61 @@ namespace Project.WinUI
 			UrunListele();
 		}
 
-		void KategoriListele()
+		private void KategoriListele()
 		{
-			cmbKategoriler.DataSource = _categoryRep.Select(x => new CategoryVM
-			{
-				ID = x.ID,
-				CategoryName = x.CategoryName,
-				Description = x.Description				 
-			}).ToList();
+			cmbKategoriler.DataSource = _crep.GetActives();
+            cmbKategoriler.DisplayMember = "CategoryName";
+            cmbKategoriler.SelectedIndex = -1;
 
-			cmbKategoriler.DisplayMember = "CategoryName";
-			cmbKategoriler.ValueMember = "ID";
-		}
+        }
 
-		void UrunListele()
+		private void UrunListele()
 		{
-			lstUrun.DataSource = _productRep.Select(x => new ProductVM
+            lstUrunler.DataSource = _prep.GetActives();
+            lstUrunler.DisplayMember = "ProductName";
+            lstUrunler.SelectedIndex = -1;
+        }
+
+		Product p;
+        private void btnEkle_Click(object sender, EventArgs e)
+        {
+            if (cmbKategoriler.SelectedIndex > -1)
+            {
+                Product p = new Product();
+                p.ProductName = txtIsim.Text;
+                p.UnitPrice = Convert.ToDecimal(txtFiyat.Text);
+                _prep.Add(p);
+                UrunListele();
+
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Kategori Ismi Girin!", "ISİM GİRİLMEDİ");
+                return;
+
+            }
+        }
+
+        private void lstUrunler_Click(object sender, EventArgs e)
+        {
+			if (lstUrunler.SelectedIndex > -1)
 			{
-				ID = x.ID,
-				ProductName = x.ProductName,
-				UnitPrice = x.UnitPrice,
-				CategoryName = x.Category == null ? "Kategorisi Yok": x.Category.CategoryName, CategoryID = x.CategoryID
-
-			}).ToList();
-		}
-
-		ProductVM _secilen;
-
-		private void lstUrun_Click(object sender, EventArgs e)
-		{
-			if (lstUrun.SelectedIndex > -1)
-			{
-				_secilen = lstUrun.SelectedItem as ProductVM;
-				txtIsim.Text = _secilen.ProductName;
-				txtFiyat.Text = _secilen.UnitPrice.ToString();
-				cmbKategoriler.SelectedValue = _secilen.CategoryID != null ? _secilen.CategoryID.Value : -1;
-			}
-		}
-
-		private void btnEkle_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				Product p = new Product();
-				p.ProductName = txtIsim.Text;
-				p.UnitPrice = Convert.ToDecimal(txtFiyat.Text);
-				if (cmbKategoriler.SelectedIndex > -1 ) p.CategoryID = Convert.ToInt32(cmbKategoriler.SelectedValue);
-
-				_productRep.Add(p);
-				UrunListele();
-			
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-
+				p = lstUrunler.SelectedItem as Product;
+				txtIsim.Text = p.ProductName;
+				txtFiyat.Text = p.UnitPrice.ToString();
+				
 			}
 		}
 
 		private void btnSil_Click(object sender, EventArgs e)
 		{
-			if (_secilen != null)
-			{
-				Product silinenUrun = _productRep.Find(_secilen.ID);
-				_productRep.Delete(silinenUrun);
-				UrunListele();
-				_secilen = null;
-				txtIsim.Text = txtFiyat.Text = null;
+			if (lstUrunler.SelectedIndex > -1)
+            {
+				
+				_prep.Delete(p);
+                p = null;
+                UrunListele();
+			    txtIsim.Text = txtFiyat.Text = null;
 				cmbKategoriler.SelectedIndex = -1;
 			}
 			else
@@ -112,26 +97,31 @@ namespace Project.WinUI
 
 		private void btnGuncelle_Click(object sender, EventArgs e)
 		{
-			try
+			
+			
+			if (lstUrunler.SelectedIndex > -1)
 			{
-				if (_secilen != null)
-				{
-					Product guncellenenUrun = _productRep.Find(_secilen.ID);
-					guncellenenUrun.ProductName = txtIsim.Text;
-					guncellenenUrun.UnitPrice = Convert.ToDecimal(txtFiyat.Text);
-					if (cmbKategoriler.SelectedIndex > -1) guncellenenUrun.CategoryID = Convert.ToInt32(cmbKategoriler.SelectedValue);
-					_productRep.Update(guncellenenUrun);
-					_secilen = null;
-					txtIsim.Text = txtFiyat.Text = null;
-					cmbKategoriler.SelectedIndex = -1;
+				
+				p.ProductName = txtIsim.Text;
+				p.UnitPrice = Convert.ToDecimal(txtFiyat.Text);
+			    _prep.Update(p);
+				p = null;
+				txtIsim.Text = txtFiyat.Text = null;
+				cmbKategoriler.SelectedIndex = -1;
 					
-				}
 			}
-			catch (Exception ex)
+			else
 			{
-
-				MessageBox.Show(ex.Message);
-			}
+                MessageBox.Show("Lütfen bir ürün seçin!", "ÜRÜN SEÇ");
+            }
+			
+			
 		}
-	}
+
+        private void btnForm3_Click(object sender, EventArgs e)
+        {
+            Form3 frm3 = new Form3();
+            frm3.ShowDialog();
+        }
+    }
 }
